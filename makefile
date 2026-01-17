@@ -1,34 +1,34 @@
 # Compiler
 CC = gcc
 
-# Compiler flags
-CFLAGS = -Wall -Wextra
+# Compiler flags (-Iinclude tells compiler to look in include/ folder)
+CFLAGS = -Wall -Wextra -Iinclude
 
 # Target executable
 TARGET = pyterminal
 
 # Source files
-SRCS = pyterminal.c flags.c utils.c
+SRCS = pyterminal.c src/flags.c src/utils.c /src/commands.c
 
-# Object files (automatically generated from SRCS)
+# Object files
 OBJS = $(SRCS:.c=.o)
 
 # Default target
 all: $(TARGET)
 
-# Link object files to create executable
+# Link object files
 $(TARGET): $(OBJS)
 	$(CC) $(OBJS) -o $(TARGET)
 
-# Compile source files to object files
+# Compile source files
 %.o: %.c
 	$(CC) $(CFLAGS) -c $< -o $@
 
-# Clean up compiled files
+# Clean up
 clean:
-	rm -f $(OBJS) $(TARGET)
+	rm -f $(OBJS) $(TARGET) src/*.o
 
-# Rebuild everything
+# Rebuild
 rebuild: clean all
 
 .PHONY: all clean rebuild

@@ -2,7 +2,7 @@
 #include <locale.h>
 
 
-#include "commands.c"
+#include "commands.h"
 #include "flags.h"
 #include "utils.h"
 

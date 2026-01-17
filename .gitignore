@@ -1,4 +1,7 @@
-/flags.o
+src/*
+include/*
+/*.o
 /pyterminal
 /pyterminal.o
 /utils.o
+include/flags.h
