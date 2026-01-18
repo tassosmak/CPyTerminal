@@ -25,8 +25,8 @@ int login_handler(void)
     ask_name_password();
     get_credentials(ask_name);
 
-    while (strcmp(file_name, ask_name) != 0) {
-        printf("Username not found. Try again.\n");
+    while (strcmp(file_name, ask_name) != 0 || strcmp(ask_password, password) != 0) {
+        printf("Username or Password is incorect. Try again.\n");
         ask_name_password();
         get_credentials(ask_name);
     }
