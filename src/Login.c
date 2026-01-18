@@ -20,10 +20,16 @@ int ask_name_password(void){
     return 1;
 }
 
-int login_handler(void){
-
+int login_handler(void)
+{
     ask_name_password();
     get_credentials(ask_name);
-    printf("\nLogin_Handler file_name: %s", file_name);
+
+    while (strcmp(file_name, ask_name) != 0) {
+        printf("Username not found. Try again.\n");
+        ask_name_password();
+        get_credentials(ask_name);
+    }
+
     return 1;
 }
