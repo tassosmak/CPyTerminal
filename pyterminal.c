@@ -2,19 +2,18 @@
 #include <locale.h>
 
 
+#include "credentials.h"
 #include "commands.h"
 #include "flags.h"
+#include "Login.h"
 #include "utils.h"
 #include "FTU.h"
-#include "Login.h"
-#include "credentials.h"
 
 
 
 int run(void){
-    printf("\033[H\033[J"); //Clear Screen
+    clear_screen();
 
-    // ask_name_password();
     login_handler();
     
     while (1){

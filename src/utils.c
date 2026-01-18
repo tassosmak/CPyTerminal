@@ -72,7 +72,9 @@ int user_exist(const char *search_path) {
 
 
 
-
+void clear_screen(void){
+    printf("\033[H\033[J"); //ASCI - Works Everywhere
+}
 
 void pl_finder(){
     #if defined(_WIN32) || defined(_WIN64)

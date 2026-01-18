@@ -35,6 +35,9 @@ int CommandList(){
     if (strcmp(Command, "exit") == 0){
         exit(1);
     }
+    if (strcmp(Command, "clear") == 0){
+        clear_screen();
+    }
     if (strcmp(Command, "infostats") == 0){
         printf("\nUsername: %s", file_name);
         printf("\nPassword: %s", password);
