@@ -5,6 +5,7 @@
 #include <stddef.h>  // for size_t
 
 void get_time(char *buffer, size_t size, int show_date);
+int user_exist(const char *search_path);
 void pl_finder(void);
 
 #endif

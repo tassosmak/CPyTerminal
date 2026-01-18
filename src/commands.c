@@ -16,7 +16,7 @@ int CommandList(){
     }
 
     if (strcmp(Command, "gui") == 0) {
-        if (strcmp(mode, "2") == 0){
+        if (strcmp(Mode, "2") == 0){
             printf("Not Available Yet");
         }
         else
@@ -34,6 +34,13 @@ int CommandList(){
 
     if (strcmp(Command, "exit") == 0){
         exit(1);
+    }
+    if (strcmp(Command, "infostats") == 0){
+        printf("\nUsername: %s", file_name);
+        printf("\nPassword: %s", password);
+        printf("\nMode: %s", Mode);
+        printf("\nPlatform: %s", pl);
+        printf("\nCommand: %s", Command);
     }
     return 0;
 }

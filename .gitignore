@@ -1,4 +1,6 @@
-/*.o
+/src/*.o
 /pyterminal
 /pyterminal.o
 /utils.o
+test.c
+*.json

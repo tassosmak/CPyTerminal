@@ -1,14 +1,16 @@
 # Compiler
-CC = gcc
+CC = gcc -g
 
-# Compiler flags (-Iinclude tells compiler to look in include/ folder)
+# Compiler flags 
 CFLAGS = -Wall -Wextra -Iinclude
 
 # Target executable
 TARGET = pyterminal
 
-# Source files
-SRCS = pyterminal.c src/flags.c src/utils.c /src/commands.c
+# Source files 
+SRCS = pyterminal.c src/flags.c src/utils.c src/commands.c src/JsonHandler.c src/cJSON.c src/FTU.c src/credentials.c src/Login.c
+
+
 
 # Object files
 OBJS = $(SRCS:.c=.o)

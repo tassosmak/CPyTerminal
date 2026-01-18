@@ -5,19 +5,18 @@
 #include "commands.h"
 #include "flags.h"
 #include "utils.h"
+#include "FTU.h"
+#include "Login.h"
+#include "credentials.h"
 
-int main(void) {
-    setlocale(LC_ALL, "UTF-8");
-    pl_finder();
 
 
+int run(void){
     printf("\033[H\033[J"); //Clear Screen
-    
-    
-    printf("Welcome To PyTerminal\nThere are 2 Modes on this terminal\n1) The Basic Mode,     2) The Advanced Mode\n");
 
-    scanf("%s", mode);
-
+    // ask_name_password();
+    login_handler();
+    
     while (1){
         printf("\nEnter Your Command: ");
         scanf("%s", Command);
@@ -26,4 +25,20 @@ int main(void) {
         CommandList();
     }
     return 0;
+}
+
+int main(void) {
+    setlocale(LC_ALL, "UTF-8");
+    pl_finder();
+
+    if (user_exist(".")){
+        run();
+        return 1;
+    }
+    else
+    {
+        FTU_Handler();
+        run();
+        return 1;
+    }
 }
