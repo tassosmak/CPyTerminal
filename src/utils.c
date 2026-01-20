@@ -7,6 +7,7 @@
 
 #include "utils.h"
 #include "flags.h"
+#include "JsonHandler.h"
 
 void get_time(char *buffer, size_t size, int show_date) {
     time_t rawtime;
@@ -70,7 +71,35 @@ int user_exist(const char *search_path) {
     return 0;  // No .json files found
 }
 
+void jump_mode(void){
+    char jump_value[8];
+    clear_screen();
+    printf("\nSelect Mode (1/2): ");
+    scanf("%s", jump_value);
+    strcpy(Mode, jump_value); //First the value that the value will be copied into and the second char
+    printf("\nthis is only for the current sension\nthe next time it will be restored\nto the previous state\n");
+    // printf("[DEBUG] Jump_Value: %s", jump_value);
+    // printf("[DEBUG] Mode: %s", Mode);
+}
 
+
+void Recover_mode(void){
+    char ask_recover_mode[8];
+    
+    // jump_mode();
+    printf("\nSelect Mode (1/2): ");
+    scanf("%7s", ask_recover_mode);
+    strcpy(Mode, ask_recover_mode);
+
+    
+    cJSON *recover_mode_value = cJSON_CreateString(ask_recover_mode);
+    // strcpy(recover_mode_value, ask_recover_mode);
+
+    add_content(file_name, "Mode", recover_mode_value);
+    
+    
+    printf("\nThe Mode has been restored!");
+}
 
 void clear_screen(void){
     printf("\033[H\033[J"); //ASCI - Works Everywhere

@@ -19,8 +19,7 @@ int CommandList(){
         if (strcmp(Mode, "2") == 0){
             printf("Not Available Yet");
         }
-        else
-        {
+        if (strcmp(Mode, "1") == 0) {
             printf("Not for your mode");
         }
     }
@@ -38,6 +37,7 @@ int CommandList(){
     if (strcmp(Command, "clear") == 0){
         clear_screen();
     }
+
     if (strcmp(Command, "infostats") == 0){
         printf("\nUsername: %s", file_name);
         printf("\nPassword: %s", password);
@@ -45,5 +45,9 @@ int CommandList(){
         printf("\nPlatform: %s", pl);
         printf("\nCommand: %s", Command);
     }
-    return 0;
+
+    if (strcmp(Command, "jump")==0){
+        jump_mode();
+    }
+    return 1;
 }

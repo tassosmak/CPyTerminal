@@ -1,9 +1,10 @@
 #include <stdio.h>
 #include <string.h>
+#include <stdlib.h>
 
 #include "JsonHandler.h"
 #include "flags.h"
-
+#include "utils.h"
 
 int get_credentials(char fl[128]){
     
@@ -30,6 +31,12 @@ int get_credentials(char fl[128]){
     if (cJSON_IsString(mode_value)) {
         strcpy(Mode, mode_value->valuestring);
         // printf("Mode: %s\n", mode_value->valuestring);
+    }
+    else{
+        printf("\nThere is a problem with the mode so it will enter recovery mode");
+        // exit(1); //Non-Permanent
+        // Recover_Mode will be here
+        Recover_mode();
     }
     
     // printf("---CREDENTIALS-END---");
