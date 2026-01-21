@@ -71,16 +71,44 @@ int user_exist(const char *search_path) {
     return 0;  // No .json files found
 }
 
-void jump_mode(void){
-    char jump_value[8];
+void jump_mode(void) {
     clear_screen();
-    printf("\nSelect Mode (1/2): ");
-    scanf("%s", jump_value);
-    strcpy(Mode, jump_value); //First the value that the value will be copied into and the second char
-    printf("\nthis is only for the current sension\nthe next time it will be restored\nto the previous state\n");
-    // printf("[DEBUG] Jump_Value: %s", jump_value);
+
+    char m;
+    int valid = 0;
+    int ModeListSize = sizeof ModeList / sizeof ModeList[0];
+
+    do {
+        valid = 0; // reset validation flag each iteration
+        printf("\nSelect Mode (1/2): ");
+        scanf(" %c", &m); // read one char
+
+        // Check if input exists in ModeList
+        for (int i = 0; i < ModeListSize; i++) {
+            if (ModeList[i] == m) {
+                Mode[0] = m;
+                Mode[1] = '\0';
+                valid = 1;
+                break;
+            }
+        }
+
+        if (!valid) {
+            printf("Wrong Option! Please enter only 1 or 2.\n");
+        }
+
+    } while (!valid); // repeat until user gives valid input
+
+    printf(
+        "\nThis is only for the current session.\n"
+        "Next time it will be restored to the previous state.\n"
+    );
+    // printf("[DEBUG] Jump_Value: %c", m);
     // printf("[DEBUG] Mode: %s", Mode);
 }
+
+
+
 
 
 void Recover_mode(void){

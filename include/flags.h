@@ -8,5 +8,6 @@ extern char pl[64];
 extern char file_name[128];
 extern char Mode[16];
 extern char password[128];
+extern char ModeList[2];
 
 #endif
